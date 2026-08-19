@@ -17,7 +17,13 @@ class Program
             Console.WriteLine("4. Salir");
             Console.Write("Seleccione una opción: ");
 
-            opcion = int.Parse(Console.ReadLine());
+            string entrada = Console.ReadLine();
+
+            if (!int.TryParse(entrada, out opcion) || opcion < 1 || opcion > 4)
+            {
+                Console.WriteLine("Entrada inválida. Solo ingrese un número del 1 al 4.");
+                continue;
+            }
 
             switch (opcion)
             {
@@ -69,10 +75,6 @@ class Program
 
                 case 4:
                     Console.WriteLine("Programa finalizado.");
-                    break;
-
-                default:
-                    Console.WriteLine("Opción incorrecta.");
                     break;
             }
 
